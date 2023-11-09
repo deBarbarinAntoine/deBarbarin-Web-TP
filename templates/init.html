@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{{define "init"}}
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/style.css">
+        <title>{{.Title}}</title>
+    </head>
+    <body>
+    <div class="allContent">
+        <div class="contentBox">
+            <h1 class="mainTitle">{{.FormTitle}}</h1>
+            <form action="/user/treatment" method="post" class="userForm">
+                <label for="lastName">Nom :</label>
+                <input class="inputForm" type="text" name="lastName" id="lastName" placeholder="Nom" required>
+                <label for="name">Prénom :</label>
+                <input class="inputForm" type="text" name="name" id="name" placeholder="Prénom" required>
+                <label for="birthday">Date d'anniversaire :</label>
+                <input class="inputForm" type="date" name="birthday" id="birthday" placeholder="jj/mm/aaaa" required>
+                <label for="gender">Sexe :</label>
+                <select class="inputForm" name="gender" id="gender" required>
+                    <option value="male">Homme</option>
+                    <option value="female">Femme</option>
+                </select>
+                <button class="inputForm" type="submit">Valider</button>
+            </form>
+        </div>
+    </div>
+    </body>
+</html>
+{{end}}

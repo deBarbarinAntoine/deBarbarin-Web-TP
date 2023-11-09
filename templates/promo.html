@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+{{define "promo"}}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/style.css">
+        <title>{{.Title}}</title>
+    </head>
+    <body>
+        <div class="allContent">
+            <div class="contentBox">
+                <h1 class="mainTitle">{{.PromoTitle}}</h1>
+                <ul>
+                    <li><span class="entryName">Nom :</span><span class="entryValue">{{.CurrentPromotion.Name}}</span></li>
+                    <li><span class="entryName">Filiaire :</span><span class="entryValue">{{.CurrentPromotion.Course}}</span></li>
+                    <li><span class="entryName">Niveau :</span><span class="entryValue">{{.CurrentPromotion.Year}}</span></li>
+                    <li><span class="entryName">Nombre d'étudiants :</span><span class="entryValue">{{.PromoNb}}</span></li>
+                </ul>
+                <h2 class="studentsTitle">{{.StudentsTitle}}</h2>
+                <div class="students">
+                    {{range .CurrentPromotion.Students}}
+                    <div class="student">
+                        <span>
+                            {{.Name}}
+                            {{.LastName}}
+                            <br>
+                            {{.Age}} ans
+                        </span>
+                        <span>
+                            <img class="genderLogo" src="../assets/{{.Gender}}.png" alt="logo {{.Gender}}">
+                        </span>
+                    </div>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+{{end}}
