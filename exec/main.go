@@ -66,6 +66,10 @@ type UserDisplayData struct {
 	UserInfo  User
 }
 
+func dateFormat(date string) string {
+	return string([]rune(date)[len(date)-2:]) + "/" + string([]rune(date)[len(date)-5:len(date)-3]) + "/" + string([]rune(date)[:4])
+}
+
 func main() {
 	tmpl, err := template.ParseGlob("../templates/*.html")
 	if err != nil {
@@ -122,7 +126,7 @@ func main() {
 		lastUser = User{
 			LastName: r.FormValue("lastName"),
 			Name:     r.FormValue("name"),
-			Birthday: r.FormValue("birthday"),
+			Birthday: dateFormat(r.FormValue("birthday")),
 			Gender:   gender,
 		}
 		http.Redirect(w, r, "/user/display", 301)
